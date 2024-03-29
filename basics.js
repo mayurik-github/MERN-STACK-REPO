@@ -122,3 +122,25 @@ var empDetails = Employee("Mayuri", "6")
 console.log(empDetails())//prints undefined
 
 
+console.log("Q5. Example of object-")
+var employee = {  //Employee object with properties empName, empId and function getSalary.
+    empName: "Sarah",
+    empId: 20,
+    getSalary: function() {
+        return 10000
+    }
+}
+console.log("Employee Sarah's salary is:-" ,employee.getSalary())
+
+
+console.log("Q5. Example of prototype-")
+
+function Vehicle (name) {
+	this.name = name
+    Vehicle.prototype.company = "Honda"    //prototyping company name for each Vehicle thats created using this constructor
+}
+
+var vehicle1 = new Vehicle("Car")
+console.log(vehicle1.name)
+console.log(vehicle1.company)
+
