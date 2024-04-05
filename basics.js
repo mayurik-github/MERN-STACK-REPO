@@ -75,10 +75,14 @@ console.log("Q3. Printing name: ")
 //Q3. Create a function with name show user info, this function expects three params, firstname, lastname and age
 //  print all the details in the given function
 
-function printMyName(firstName, lastName, age) {
-    console.log("First Name:", firstName, "Last name:", lastName, "And age:" , age)
+function displayUserInfo(callbackFunction) {
+    callbackFunction("Julia", "Roberts", "50")
 }
-printMyName("Julia", "Roberts", "50")
+
+function printMyName(firstName, lastName, age) {
+    console.log("Displaying User Info: ", "First Name:", firstName, "Last name:", lastName, "And age:" , age)
+}
+displayUserInfo(printMyName)
 
 //Q4. Create a function with name doaddition, pass three parameters and return the sum of all the three numbers
 // below output needs to be monitored - add(2,3,4), add(2), add(2.3,3), add("first", 2, "three")
