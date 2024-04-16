@@ -152,6 +152,10 @@ let country1 = "USA",
 let Countries = {country1, country2, country3, country4}
 console.log("8. create an example showing usage of short hand...", Countries)
 
+function multiply(x=1, y=2) {
+    return x * y
+}
+console.log("8. Default param example...multiplication ", multiply(3))   //output 6
 
 //9. Create two objects with some properties and merge them using Object method and ES6 way
 //Using Object method
@@ -174,7 +178,7 @@ console.log("9. Object.assign to merge objects...", employeeDept)
 let EmployeeES6 = {name : "Employee1", designation : "Developer", salary : 5000}
 let DepartmentES6 = {deptName : "Development", deptCode : 30}
 
-let employeeDeptES6 = Object.assign(EmployeeES6, DepartmentES6)
+let employeeDeptES6 = {...EmployeeES6, ...DepartmentES6}
 console.log("9. ES6 way to merge objects...", employeeDeptES6)
 
 
