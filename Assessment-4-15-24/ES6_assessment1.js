@@ -13,22 +13,23 @@
 //Spread operator ... can be used to preserve the immutability of heroes list.
 
 // a. Get heroes who are not evils
-let heroesNotEvils = heroes.filter(hero=>!hero.isEvil)
+heroesList = [...heroes]
+let heroesNotEvils = heroesList.filter(hero=>!hero.isEvil)
 console.log("a. Get heroes who are not evils...", heroesNotEvils)
 
 // b. Print Unique family names
-let uniqueFamilyNames = heroes.reduce((prevVal, currVal, index, array) => {
+let uniqueFamilyNames = heroesList.reduce((prevVal, currVal, index, array) => {
     prevVal[currVal.family] = prevVal[currVal.family] ? prevVal[currVal.family] + 1 : 1
     return prevVal
 }, [])
 console.log("b. Print Unique family names...", uniqueFamilyNames)
 
 // c. Print Hero Names from given objects, and append sir in each of them before printing
-let heroesWithSirInNames = heroes.map(hero=> hero.name + " Sir")
+let heroesWithSirInNames = heroesList.map(hero=> hero.name + " Sir")
 console.log("c. Print Hero Names from given objects, and append sir in each of them before printing...", heroesWithSirInNames)
 
 // d. Do we have any hero in Marvel Family who is not evil
-let heroWhoIsNotEvil = heroes.some(hero => !hero.isEvil)
+let heroWhoIsNotEvil = heroesList.some(hero => !hero.isEvil)
 console.log("// d. Do we have any hero in Marvel Family who is not evil...", (heroWhoIsNotEvil == true ? "YES" : "NO"))
 
 // const heroes = [
