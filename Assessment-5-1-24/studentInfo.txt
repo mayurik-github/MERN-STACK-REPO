@@ -1,1 +1,1 @@
-[{"name":"Sheena","age":"30","address":"california","session":"mern"}][{"name":"Tom","age":"35","address":"nevada","session":"python"}]
+{"name":"XYZ","age":"35","address":"illinois","session":"mern"}{"name":"ABC","age":"35","address":"illinois","session":"mern"}{"name":"ABC","age":"50","address":"california","session":"mern"}

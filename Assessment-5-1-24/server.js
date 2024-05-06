@@ -155,16 +155,15 @@ function es6features() {
 
 //10. Create an example of generator function of your choice
 console.log("\n10. Create an example of generator function of your choice");
-function *generateNumbers() {
-  yield 1;
-  yield 3;
-  yield 4;
-  return 5;
+function* generateNumbers() {
+  let id = 1;
+  while(true) {
+    yield id;
+    id++;
+  }
 }
 let numbers = generateNumbers()
-for(let val of numbers) {
-  console.log(val);
-}
-
-let next = numbers.next();
-console.log(JSON.stringify(next))
+console.log(numbers.next())
+testApp.get("/generateNumbers", (req, res) => {
+  res.json(numbers.next());
+});
