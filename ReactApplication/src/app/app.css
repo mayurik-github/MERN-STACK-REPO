@@ -1,0 +1,17 @@
+.topdiv{
+    border: 3px red solid;
+}
+
+h4{
+    color: green;
+    font-weight: 400;
+    font-size: 16;
+    font-style: oblique;
+}
+
+#name-element{
+    color: orange;
+    font-size: 20px;
+    font-weight: 1000;
+    border-radius: 10%;
+}
