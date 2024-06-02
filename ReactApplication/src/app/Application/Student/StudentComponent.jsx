@@ -19,6 +19,8 @@ export default class StudentComponent extends Component {
         event.preventDefault();
     }
 
+    
+
     onTextChange = (event)=> {
         let target = event.target;
         let classList = target.classList;
@@ -69,6 +71,10 @@ export default class StudentComponent extends Component {
 
                             <input type="button" className={"btn btn-primary col-md-3 updateStudent"} 
                                     value={"Add Student"}  
+                                    onClick={this.updateStudent}/>
+
+                            <input type="button" className={"btn btn-primary col-md-3 updateStudent"} 
+                                    value={"List Students"}  
                                     onClick={this.updateStudent}/>
                                     
                         </div>

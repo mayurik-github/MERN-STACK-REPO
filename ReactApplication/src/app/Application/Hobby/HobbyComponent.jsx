@@ -5,13 +5,12 @@ export default class HobbyComponent extends Component {
         super(props);
 
         this.state = {
-            hobbyName: props.hobby.name
+            hobbyName: props.hobby.hobbyName
         }
     }
 
     updateHobby = (event)=>{
-        let newHobby = this.state;
-        alert("New hobby: ", JSON.stringify(newHobby));
+        let newHobby = this.state.hobbyName;
         this.props.updateHobby(newHobby);
         event.preventDefault();
     }
@@ -21,8 +20,8 @@ export default class HobbyComponent extends Component {
         let classList = target.classList;
         let value = target.value;
 
-        if(classList.contains("hobbyName")) {
-            this.setState(hobbyName: value);
+        if(classList.contains("hobbyname")) {
+            this.setState({hobbyName: value});
         }
         event.preventDefault();
     }
@@ -34,14 +33,18 @@ export default class HobbyComponent extends Component {
                 <section className={"componentClass"}>
                     <div className="form col-md-8">
                         <div className="col-md-12">
-                            <b>Student Name</b>
-                            <input type="text" className="form-control col-md-6 name" 
-                                    value={this.state.name} 
-                                placeholder="Student Name" onChange={this.onTextChange} maxLength={40}/>
+                            <b>Hobby Name</b>
+                            <input type="text" className="form-control col-md-6 hobbyname" 
+                                    value={this.state.hobbyName} 
+                                placeholder="Hobby Name" onChange={this.onTextChange} maxLength={40}/>
             
                             <input type="button" className={"btn btn-primary col-md-3 updateHobby"} 
                                     value={"Add Hobby"}  
                                     onClick={this.updateHobby}/>
+
+                            <input type="button" className={"btn btn-primary col-md-3 getHobbies"} 
+                                    value={"Get Hobbies"}  
+                                    onClick={this.getHobbies}/>
                         </div>
                     </div>
                 </section>

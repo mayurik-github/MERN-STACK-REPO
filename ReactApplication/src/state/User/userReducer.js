@@ -2,7 +2,7 @@ import * as actionTypes from "../actionTypes"
 
 let initialState = {
     User: {
-        userName : "User1 from reducer",
+        userName : "testUser",
         password : "abcd",
         street: "address1",
         mobile: 8987898

@@ -25,7 +25,7 @@ export const SaveStudentToDB = (newStudent)=> {
 
 export const SaveStudentToDBUsingFetch = (newStudent) => {
     return(dispatch)=> {
-        window.fetch("http://localhost:9000/student/api/addUpdateStudent", 
+        window.fetch("http://localhost:9000/student/api/addStudent", 
                     {
                         method: 'POST',
                         headers: {

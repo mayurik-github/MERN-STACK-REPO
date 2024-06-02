@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 //import {connect} from "react-redux";
 //import { AddUserToStore} from "../../../state/User/userAction"
+import HobbiesList from "../../../state/Hobby/hobbyList";
 
 export default class UserComponent extends Component{
     constructor(props){
@@ -40,6 +41,11 @@ export default class UserComponent extends Component{
         this.props.loginUser(newUser) 
         evt.preventDefault();
     }
+
+    getHobbies = (event)=>{
+        this.props.getHobbies();
+        event.preventDefault();
+    }
     
     render() {
         return(
@@ -71,7 +77,10 @@ export default class UserComponent extends Component{
                                 placeholder="Mobile" maxLength="11"
                                 onChange={this.onTextChange} />
                             </div>
-
+                            <div className="col-md-12">
+                                <b>Hobby </b>
+                                <HobbiesList />
+                            </div>
                             <input type="button" className={"btn btn-primary col-md-2 saveUser"} 
                                     value={"SignIn-Up"} 
                                     onClick={this.loginUser}/>
