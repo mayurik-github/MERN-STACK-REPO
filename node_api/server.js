@@ -9,6 +9,9 @@ const defaultRouter = require("./Routers/defaultRoute")
 const adminRouter = require("./Routers/adminRoute")
 const userRouter = require("./Routers/userRoute")
 const studentRouter = require("./Routers/studentRoute")
+const hobbyRouter = require("./Routers/hobbyRoute")
+const productRouter = require("./Routers/productRoute")
+const cartRouter = require("./Routers/cartRoute")
 
 global.rootDir = __dirname;
 
@@ -16,6 +19,9 @@ global.rootDir = __dirname;
 const adminApp = express(); // a new express app to handle requests mounted with admin in path
 const userApp = express();
 const studentApp = express();
+const hobbyApp = express();
+const productApp = express();
+const cartApp = express();
 
 app.use(cors()) //enabling cross origin resource sharing at root level
 //setting up the middleware static to handle all the static files we need to serve to client
@@ -36,6 +42,15 @@ userApp.use(userRouter)
 
 app.use("/student", studentApp)
 studentApp.use(studentRouter)
+
+app.use("/hobby", hobbyApp)
+hobbyApp.use(hobbyRouter)
+
+app.use("/product", productApp)
+productApp.use(productRouter)
+
+app.use("/cart", cartApp)
+cartApp.use(cartRouter)
 
 app.use("/",defaultRouter)
 
