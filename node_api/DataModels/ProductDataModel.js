@@ -6,8 +6,9 @@ mongooseDataObj.connect("mongodb://127.0.0.1/mernstack18")
 let productSchema = new schemaObj({
     name: {type:String, required : true},
     price: {type:Number, required : true},
-    desc: {type:String},
-    rating: {type:String}
+    description: {type:String},
+    rating: {type:String},
+    quantity: {type:Number, default:1}
 },
 {
     versionKey: false
