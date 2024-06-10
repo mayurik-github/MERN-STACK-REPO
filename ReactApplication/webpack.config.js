@@ -7,7 +7,7 @@ config = {
         filename: 'bundle.js'
     },
     devServer: {
-        port: 9090,
+        port: 9095,
         historyApiFallback : true
     },
     module: {

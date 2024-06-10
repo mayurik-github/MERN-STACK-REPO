@@ -8,12 +8,12 @@ import About from "./Common/AboutComponent"
 import UserComponent from "./Application/User/UserContainer";
 import Home from "./Common/HomeComponent";
 import UserHook from "./Application/User/UserHookComponent"
-import ProductHook from "./Application/Product/ProductHookComponent"
+import Product from "./Application/Product/AddProduct"
 import StudentComponent from "./Application/Student/StudentContainer";
 import StudentHook from "./Application/Student/StudentHookComponent";
 import HobbyComponent from "./Application/Hobby/HobbyContainer"
-import GetProductHook from "./Application/Product/GetProductHookComponent"
-import CartHook from "./Application/Cart/CartHookComponent"
+import GetProduct from "./Application/Product/GetProduct"
+import Cart from "./Application/Cart/CartComponent"
 
 export default class ApplicationComponent extends Component {
     constructor(props){
@@ -56,9 +56,9 @@ export default class ApplicationComponent extends Component {
                     <Route path="user" element={<UserComponent />}/>
                      {/*<Route path="user" element={<UserHook />}/>*/}
                     <Route path="student" element={<StudentComponent />}/>
-                    <Route path="product" element={<ProductHook />}/>
-                    <Route path="productList" element={<GetProductHook />}/>
-                    {/*<Route path="cart" element={<CartHook />}/>}*/}
+                    <Route path="product" element={<Product />}/>
+                    <Route path="productList" element={<GetProduct />}/>
+                    <Route path="cart" element={<Cart />}/>
                     {/*<Route path="hobby" element={<HobbyComponent />}/>}*/}
                     <Route path="about" element={<About />}/>
                     <Route path="about/:id" element={<About />} />

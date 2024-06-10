@@ -1,44 +1,57 @@
 import * as actionTypes from "../actionTypes"
 import axios from "axios"
 
-export const AddProductToStore = (product) => {
+export const sendProductsToStore = (newProduct) => {
+
     return {
-        type: actionTypes.ADD_PRODUCT_TO_STORE,
-        payload: {product}
+        type: actionTypes.SendProductToStore,
+        payload: newProduct
     }
 }
 
-export const FetchProductsFromStore = (products) => {
+export const getProductsFromStore = (product) =>{
     return {
-        type: actionTypes.FETCH_PRODUCTS,
-        payload: products
+        type: actionTypes.GetProductsFromStore,
+        payload: product
     }
 }
 
-export const SaveProductToDB = (newProduct)=> {
-    return(dispatch)=> {
-        
-        axios.post("http://localhost:9000/product/api/addProduct", newProduct)
-                .then((collection) => {
-                    let modifiedProduct = collection.data
-                    dispatch(AddProductToStore(modifiedProduct))
-                }).catch((err)=> {
-                    console.log("Error while adding/updating product  ", err)
-                })
+export const getProductFromStore = (product) =>{
+    return {
+        type: actionTypes.GetProductFromStore,
+        payload: product
     }
 }
 
-export const GetProductsFromDB = ()=> {
-    
+export const updateProduct = (updatedProduct)=>{
+    return{
+        type: actionTypes.UpdateProduct,
+        payload: updatedProduct
+    }
+}
+
+export const fetchDataFromDB = () =>{
+
     return(dispatch)=> {
         axios.get("http://localhost:9000/product/api/getProducts")
                 .then(collection=>collection.data)
                 .then((collection) => {
-                   dispatch(FetchProductsFromStore(collection))
+                   dispatch(getProductsFromStore(collection))
                 })
                .catch((err)=> {
                     console.log("Error while retrieving hobbies  ", err)
                 });
-                
-    }
+            }
+}
+
+export const saveDataToDB = (newProduct) =>{
+
+    return(dispatch)=> {axios.post("http://localhost:9000/product/api/addProduct", newProduct)
+                .then((collection) => {
+                    let modifiedProduct = collection.data
+                    dispatch(sendProductsToStore(modifiedProduct))
+                }).catch((err)=> {
+                    console.log("Error while adding/updating product  ", err)
+                });
+            }
 }

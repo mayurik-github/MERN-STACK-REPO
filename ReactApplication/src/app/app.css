@@ -462,9 +462,9 @@ optgroup {
 
 table {
   border-collapse: collapse; 
-  width: 45%; 
+  width: 60%; 
   margin-right: 10px; 
-    
+  table-layout:fixed;
  }
 
 .table-container { 

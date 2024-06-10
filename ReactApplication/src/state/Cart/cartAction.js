@@ -1,21 +1,22 @@
 import * as actionTypes from "../actionTypes"
 import axios from "axios"
 
-export const addProductToStore = (product) => {
-    return {
-        type: actionTypes.ADD_ITEM_TO_STORE,
-        payload: {product}
-    }
-}
+export const addItemToCart = (item) => ({
+    type: actionTypes.AddItemToCart,
+    payload: item
+})
 
-export const addProductToCart = (product) => {
-    return(dispatch)=> {
-        dispatch(addProductToStore(product))
+export const updateItemFromCart = (id,qty) =>({
+    type: actionTypes.UpdateItemFromCart,
+    payload: {
+        id,
+        qty: parseInt(qty)
     }
-    
-}
+})
 
-export const saveCartToDB = (cart, userId)=> {
+
+export const saveCartToDb = (cart,userId) => {
+
     console.log("Axios call");
     return(dispatch)=> {
         var params = {
@@ -28,5 +29,30 @@ export const saveCartToDB = (cart, userId)=> {
                 }).catch((err)=> {
                     console.log("Error while adding/updating cart  ", err)
                 })
+    }
+}
+
+export const getUserCart = (userid) =>{
+
+    return function(dispatch) {
+
+        window.fetch("http://localhost:9000/cart/api/getUserCart",{
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({userid:userid})})
+            .then(response => response.json())
+            .then(response =>{
+
+                dispatch(emptyCart())
+                if(response){
+                    for(const item of response.cart){
+                    
+                        dispatch(addItemToCart(item))
+                    }
+                }
+            })
     }
 }

@@ -24,3 +24,13 @@
 
 // Needs to follow bootstrap css or individual css <1 mark>
 // Must follow html5 standard structure either form based or div based <1 mark>
+
+
+//Tasks 6-1-24
+// Checkout Component
+// Create A functional component and use react hook or using container to read data from store
+// Show - User Details (Name, address) //We will deliver products to below address kind of message as well
+// Show Table of cart put up for purchase (you need to re-use the cartlist and cartitem components)
+// Show the purchase Summary (total qty and total amount)
+// Show a Button to Proceed to Payment
+// Integrate this page on CartComponent Button (Go to checkout) -(Go To Checkout From Cart Component)
