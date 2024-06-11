@@ -17,7 +17,7 @@ couponRouter.post("/api/saveCoupon", (req,res)=> {
                             })
                             } else {
                                 let newCoupon = new CouponDataModel(req.body)
-                                newCoupon.save().then((item)=> {
+                                newCoupon.save().then((newCoupon)=> {
                                     res.send(newCoupon);
                                 }).catch((err)=> {
                                     console.log("Error in adding newCoupon item: " + err);
