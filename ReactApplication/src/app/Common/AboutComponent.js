@@ -17,7 +17,9 @@ let About = () => {
     }
 
     return(
-        <div className="about" >  
+        
+        <div className="about" >  <br/>
+        <br/>
         <h2>We promise to support .... </h2>  
         <p className="about-content">If you’re looking for a job—a great job—we can help  
             you get in the door at some incredible companies.  

@@ -49,6 +49,9 @@ export default class UserComponent extends Component{
     render() {
         return(
             <>
+                <br/>
+                <br/>
+                <br/>
                 <h1>User Login Page</h1>
                 <section className={"componentClass"}>
                     <div className="form col-md-8">

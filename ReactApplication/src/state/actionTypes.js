@@ -12,6 +12,9 @@ export const FETCH_USER_HOBBIES = 'FETCH_HOBBIES';
 
 
 export const ADD_HOUSE_TO_STORE = "HOUSE.ADDHOUSETOSTORE"
+
+
+export const AddCouponToStore = "COUPON.ADDCOUPON"
 /*
 export const ADD_USER_TO_STORE = "STORE.ADDUSER";
 export const ADD_STUDENT_TO_STORE = "STORE.ADDSTUDENT";

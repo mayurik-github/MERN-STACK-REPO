@@ -14,13 +14,14 @@ import StudentHook from "./Application/Student/StudentHookComponent";
 import HobbyComponent from "./Application/Hobby/HobbyContainer"
 import GetProduct from "./Application/Product/GetProduct"
 import Cart from "./Application/Cart/CartComponent"
+import Logout from "./Common/LogoutComponent";
 
 export default class ApplicationComponent extends Component {
     constructor(props){
         super(props);
 
         this.state = {
-            name : "Test User"
+            name : ""
         }
     }
 
@@ -62,7 +63,8 @@ export default class ApplicationComponent extends Component {
                     {/*<Route path="hobby" element={<HobbyComponent />}/>}*/}
                     <Route path="about" element={<About />}/>
                     <Route path="about/:id" element={<About />} />
-                    <Route path="*" element={<NotFound />}/>                    
+                    <Route path="*" element={<NotFound />}/>
+                    <Route path= "/logout" element = {<Logout />}/>                    
                 </Routes>
                 <Footer/> 
                 </div>

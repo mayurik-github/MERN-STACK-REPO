@@ -2,6 +2,8 @@ import React from "react"
 import { useState, useEffect, Fragment } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import CartItemComponent from "./CartItemComponent"
+import CartSummary from "./CartSummary"
+import Coupon from "../Coupon/CouponComponent"
 import {saveCartToDb} from "../../../state/Cart/cartAction"
 
 
@@ -18,6 +20,21 @@ let Cart = (props) =>{
         evt.preventDefault();
     }
 
+    let recalculate = (cartList)=>{
+        let amount = 0, 
+            count = 0;
+    
+        for(let item of cartList) {
+            amount += item.quantity * item.price;
+            count  += item.quantity; 
+        }
+    
+        return {
+            amount, 
+            count 
+        }
+    }
+
 
     return(
 
@@ -25,7 +42,7 @@ let Cart = (props) =>{
         <div className="content-wrap" >  
 
             <div class="container-fluid">
-     
+                <br/><br/><br/>
                 <h1 className="title">Shopping Cart</h1>
                 {   
                     cartList && cartList.length >= 1 ? 
@@ -55,7 +72,8 @@ let Cart = (props) =>{
                         
                         </tbody>
                     </table>
-                 
+                    <CartSummary data={recalculate(cartList)} readOnly={props.readOnly} />
+                    <Coupon />
                     </>
                     : 
                     <div >  
@@ -63,6 +81,7 @@ let Cart = (props) =>{
                     </div>
                     
                 }
+                
             </div>
         </div>
     

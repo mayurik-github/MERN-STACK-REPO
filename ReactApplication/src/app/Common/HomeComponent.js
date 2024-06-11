@@ -104,6 +104,8 @@ export default class Home extends Component {
         console.log("render method called")
         return(
             <div className={"loadimage form"} >
+                <br/>
+                <br/>
                 <h1>{this.state.title}</h1>
                 <b className="feature">{"Product Feature's :"}</b>
                 <ul>                     
