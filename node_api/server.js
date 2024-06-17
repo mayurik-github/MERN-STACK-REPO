@@ -13,6 +13,8 @@ const hobbyRouter = require("./Routers/hobbyRoute")
 const productRouter = require("./Routers/productRoute")
 const cartRouter = require("./Routers/cartRoute")
 const couponRouter = require("./Routers/couponRoute")
+const orderRouter = require("./Routers/orderRoute")
+const cancelOrderRouter = require("./Routers/cancelOrderRoute")
 
 global.rootDir = __dirname;
 
@@ -24,6 +26,8 @@ const hobbyApp = express();
 const productApp = express();
 const cartApp = express();
 const couponApp = express();
+const orderApp = express();
+const cancelOrderApp = express();
 
 app.use(cors()) //enabling cross origin resource sharing at root level
 //setting up the middleware static to handle all the static files we need to serve to client
@@ -56,6 +60,12 @@ cartApp.use(cartRouter)
 
 app.use("/coupon", couponApp)
 couponApp.use(couponRouter)
+
+app.use("/order", orderApp)
+orderApp.use(orderRouter)
+
+app.use("/cancel", cancelOrderApp)
+cancelOrderApp.use(cancelOrderRouter)
 
 app.use("/",defaultRouter)
 

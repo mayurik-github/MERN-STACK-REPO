@@ -5,7 +5,7 @@ mongooseDataObj.connect("mongodb://127.0.0.1/mernstack18")
 
 let cartSchema = new schemaObj({
     cart : {type:Object},
-    userName: {type:String}
+    userId: {type:String}
 },
 {
     versionKey: false
