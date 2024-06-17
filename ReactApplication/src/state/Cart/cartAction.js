@@ -26,11 +26,16 @@ export const saveCartToDb = (cart,userId) => {
         axios.post("http://localhost:9000/cart/api/addCartItems", {userId:userId, cart:cart})
                 .then((collection) => {
                     let modifiedCart = collection.data
+                    console.log("Added cart: "+ modifiedCart)
                 }).catch((err)=> {
                     console.log("Error while adding/updating cart  ", err)
                 })
     }
 }
+
+export const clearCart = () => ({
+    type: actionTypes.ClearUserCart
+})
 
 export const getUserCart = (userid) =>{
 
@@ -46,7 +51,7 @@ export const getUserCart = (userid) =>{
             .then(response => response.json())
             .then(response =>{
 
-                dispatch(emptyCart())
+                dispatch(clearCart())
                 if(response){
                     for(const item of response.cart){
                     

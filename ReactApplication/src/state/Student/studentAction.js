@@ -36,7 +36,7 @@ export const SaveStudentToDBUsingFetch = (newStudent) => {
                     }
         ).then((response)=> response.json)
         .then((studentData)=> {
-            console.log(userData)
+            console.log(studentData)
             dispatch(AddStudentToStore(studentData))
         }).catch((err)=>{
             console.log("Error while adding/updating student to DB using fetch ", err)

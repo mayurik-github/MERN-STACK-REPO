@@ -1,5 +1,6 @@
 import React from "react"
-import { useState, useEffect, Fragment } from "react"
+import { useState} from "react"
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import CartItemComponent from "./CartItemComponent"
 import CartSummary from "./CartSummary"
@@ -11,12 +12,27 @@ let Cart = (props) =>{
 
     let cartList = useSelector((state) => state.cartReducer)
     let user = useSelector((state) => state.userReducer.User)
-    
+    const [isVisible, setIsVisible] = useState(false);
+
     let dispatchToDB = useDispatch()
 
     let saveCart = (evt) => {
-
+        setIsVisible(!isVisible)
+       
+        isVisible && (
+            <div>
+              <p>This is the content to show/hide.</p>
+            </div>
+        )
         dispatchToDB(saveCartToDb(cartList,user._id))
+        evt.preventDefault();
+    }
+
+    let navigate = useNavigate();
+
+    let checkout = (evt)=>{
+        saveCart(evt)
+        navigate('/checkout');
         evt.preventDefault();
     }
 
@@ -42,7 +58,7 @@ let Cart = (props) =>{
         <div className="content-wrap" >  
 
             <div class="container-fluid">
-                <br/><br/><br/>
+                
                 <h1 className="title">Shopping Cart</h1>
                 {   
                     cartList && cartList.length >= 1 ? 
@@ -68,7 +84,7 @@ let Cart = (props) =>{
                             }
                            
                                 <button className="btn btn-primary" onClick={saveCart}>Save</button>
-                                <button className="btn btn-primary">Checkout</button>
+                                <button className="btn btn-primary" onClick={checkout}>Checkout</button>
                         
                         </tbody>
                     </table>

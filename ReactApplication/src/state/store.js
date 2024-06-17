@@ -6,8 +6,9 @@ import studentReducer from "./Student/studentReducer";
 import hobbyReducer from "./Hobby/hobbyReducer";
 import productReducer from "./Product/productReducer"
 import cartReducer from "./Cart/cartReducer";
-import checkoutReducer from "./Checkout/checkoutReducer"
 import couponReducer from "./Coupon/couponReducer";
+import orderReducer from "./Order/orderReducer";
+import cancelledOrderReducer from "./CancelledOrder/cancelledOrderReducer";
 
 let rootReducer = combineReducers({
     userReducer,
@@ -15,8 +16,9 @@ let rootReducer = combineReducers({
     hobbyReducer,
     productReducer,
     cartReducer,
-    checkoutReducer,
-    couponReducer
+    couponReducer,
+    orderReducer,
+    cancelledOrderReducer
 })
 
 export default configureStore(

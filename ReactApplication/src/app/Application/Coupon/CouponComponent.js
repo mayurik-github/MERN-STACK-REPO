@@ -30,7 +30,15 @@ const Coupon = () => {
         <>
    
             <button onClick={generateCoupon}>GenerateCoupon</button>
-           
+            <div className="row">
+            
+            {
+                coupons && coupons.length >= 1 ? 
+                <h4>Coupon has been applied successfully.</h4>
+                    
+                :""
+            }
+            </div>
         </>
     )
 

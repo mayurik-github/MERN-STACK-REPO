@@ -48,10 +48,7 @@ export default class UserComponent extends Component{
     
     render() {
         return(
-            <>
-                <br/>
-                <br/>
-                <br/>
+            <><div className="container">
                 <h1>User Login Page</h1>
                 <section className={"componentClass"}>
                     <div className="form col-md-8">
@@ -88,7 +85,7 @@ export default class UserComponent extends Component{
                                     onClick={this.loginUser}/>
                                     
                         </div>
-                </section>
+                </section></div>
             </>
         )
     }

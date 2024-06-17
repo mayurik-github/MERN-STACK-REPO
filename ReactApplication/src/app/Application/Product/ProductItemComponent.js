@@ -3,30 +3,44 @@ import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom";
 
-import { addItemToCart } from "../../../state/Cart/cartAction"
+import { addItemToCart, updateItemFromCart } from "../../../state/Cart/cartAction"
 
 let ProductItemComponent = (props) =>{
     let user = useSelector((state) => state.userReducer.User);
+    let cartList = useSelector((state) => state.cartReducer)
     let product = props.product
   
     let dispatchToAddProduct = useDispatch();
-    let nevigate = useNavigate()
+    //let [quantity, setQuantity] = useState(state.product.quantity)
+
 
     useEffect(()=>{
 
     },[])
 
     let addProductToCart = ( product )=>{
-
-            dispatchToAddProduct(addItemToCart(product))
+        console.log("Product qunatity="+ product.quantity)
+            
+            let quantity = product.quantity;
+    
+            cartList && cartList.length >= 1 ? 
+            cartList.map((item) =>{
+                if(item._id == product._id) {
+                    quantity +=item.quantity;
+                }
+            }):""
         
+        console.log("State qunatity="+ quantity)
+        dispatchToAddProduct(addItemToCart(product))
+        
+        dispatchToAddProduct(updateItemFromCart(product._id, quantity))
     }
 
     return(
         <div className="content-wrap" >
         <div className="card border-dark mb-3">
     
-        <img src={`../assets/images/${product.name}.jpg`} height="250" width="400"></img>
+        <img src={`../../../assets/${product.name}.jpg`} height="250" width="400"></img>
          
   
                 <div>

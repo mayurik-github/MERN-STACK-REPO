@@ -13,8 +13,17 @@ export const FETCH_USER_HOBBIES = 'FETCH_HOBBIES';
 
 export const ADD_HOUSE_TO_STORE = "HOUSE.ADDHOUSETOSTORE"
 
+export const SendRecentOrderToStore = "ORDER.ADDRECENTORDERTOSTORE"
+export const GetRecentOrdersFromStore = "ORDER.GETRECENTORDERSFROMSTORE"
+export const RemoveOrderFromStore = "ORDER.REMOVEORDERFROMSTORE"
+export const DeleteOrderFromDB = "ORDER.DELETEORDERFROMDB";
+export const SendDeletedOrderToStore = "ORDER.ADDDELETEDORDERTOSTORE";
+export const SendCancelOrderToStore = "ORDER.SENDCANCELORDERTOSTORE";
+export const RemoveCancelledOrder = "ORDER.RemoveCancelledOrder";
+export const RemoveDeletedCancelledOrderFormStore = "ORDER.REMOVEDELETEDCANCELLEDORDER"
 
 export const AddCouponToStore = "COUPON.ADDCOUPON"
+export const ClearUserCart = "CART.CLEARUSERCART"
 /*
 export const ADD_USER_TO_STORE = "STORE.ADDUSER";
 export const ADD_STUDENT_TO_STORE = "STORE.ADDSTUDENT";

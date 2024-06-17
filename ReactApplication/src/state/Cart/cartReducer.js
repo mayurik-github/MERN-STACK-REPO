@@ -8,7 +8,8 @@ let cartReducer = (state = initialState, action) =>{
     switch(action.type){
 
         case actionTypes.AddItemToCart:
-            return [...state, action.payload]
+            let updatedState = state.filter(item => item._id != action.payload._id)
+            return [...updatedState, action.payload]
         
        
         case actionTypes.UpdateItemFromCart:
@@ -19,6 +20,9 @@ let cartReducer = (state = initialState, action) =>{
                 }
                 return item
             })
+
+        case actionTypes.ClearUserCart:
+            return []
 
         default:
             return state

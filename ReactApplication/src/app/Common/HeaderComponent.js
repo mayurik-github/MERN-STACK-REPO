@@ -9,29 +9,44 @@ let Header = (props) => {
     console.log(user)
     return(
         <>
-           
-            <div>
             
+            <div className="header">
+                
                 {/*<NavLink to="/student"  className="button" activeclassname="true"> Students </NavLink>*/}
                 
+                
                 {userName ?
-                <nav className="link-container"><h3>Hi {userName} , Welcome to Shopping Cart sponsored by our team.</h3>
-                     <NavLink to="/home"  className="button" activeclassname="true"> Home </NavLink>
+                
+                    <>
+                   
+                    <h3>Hi {userName} , Welcome to Shopping Cart sponsored by our team.</h3>
+                    <NavLink to="/home"  className="button" activeclassname="true"> Home </NavLink>
                     <NavLink to="/user"  className="button" activeclassname="true"> Login </NavLink>
                     <NavLink to="/about"  className="button" activeclassname="true"> About </NavLink>
-                    
+                    <NavLink to="/productList"  className="button" activeclassname="true"> List Products </NavLink>
                     <NavLink to="/cart"  className="button" activeclassname="true"> Cart </NavLink>
+                    <NavLink to = "/recentOrders" className= "button" activeclassname ="success">Orders</NavLink>
+                    <NavLink to = "/reorderPage" className= "button" activeclassname ="success"> Reorder</NavLink>
+                    <NavLink to = "/logout" className= "button" activeclassname = "true">Logout</NavLink>
                     {userName === 'admin' ?
                     <NavLink to="/product"  className="button" activeclassname="true"> Add Product </NavLink>
-                    :null}
-                    <NavLink to="/productList"  className="button" activeclassname="true"> List Products </NavLink>
-                    <NavLink to = "/logout" className= "button" activeclassname = "true">Logout</NavLink>
-                </nav> : <nav className="link-container"><h3>Hi {userName} , Welcome to Shopping Cart sponsored by our team.</h3><NavLink to="/home"  className="button" activeclassname="true"> Home </NavLink>
+                    :""}
+                    
+                    </>
+                 : 
+                
+                <>
+                <h3>Hi {userName} , Welcome to Shopping Cart sponsored by our team.</h3>
+             
+                <NavLink to="/home"  className="button" activeclassname="true"> Home </NavLink>
                 <NavLink to="/user"  className="button" activeclassname="true"> Login </NavLink>
                 <NavLink to="/about"  className="button" activeclassname="true"> About </NavLink>
-                <NavLink to = "/logout" className= "button" activeclassname = "true">Logout</NavLink>
-                </nav>
+            
+                </>
+            
                 }
+                
+                
                 {/*<NavLink to="/hobby"  className="button" activeclassname="true"> Hobby Page </NavLink>*/}
                
                 {/*<NavLink to="/about/2500"  className="button" activeclassname="true"> About with Param</NavLink>*/}

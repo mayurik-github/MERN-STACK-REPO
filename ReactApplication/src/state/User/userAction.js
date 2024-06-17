@@ -1,5 +1,6 @@
 import * as actionTypes from "../actionTypes";
 import axios from "axios";
+import { getUserCart } from "../Cart/cartAction";
 
 export const AddUserToStore = (user) => {
     return {
@@ -16,6 +17,7 @@ export const SaveUserToDB = (newUser) => {
                     console.log(loggedUser)
 
                     dispatch(AddUserToStore(loggedUser))
+                    dispatch(getUserCart(loggedUser._id))
                 }).catch((err)=> {
                     console.log("Error while logging in ", err)
                 })
@@ -31,11 +33,12 @@ export const SaveUserToDBUsingFetch = (newUser)=>{
                     'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newUser)})
+            body: JSON.stringify({newUser})})
             .then((response)=>response.json())
             .then((userData)=>{
                 console.log(userData)
                 dispatch(AddUserToStore(userData))
+                dispatch(getUserCart(userData._id))
             }).catch((err)=>{
                 console.log("error while logging in ", err)
         })

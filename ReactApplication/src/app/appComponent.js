@@ -15,6 +15,9 @@ import HobbyComponent from "./Application/Hobby/HobbyContainer"
 import GetProduct from "./Application/Product/GetProduct"
 import Cart from "./Application/Cart/CartComponent"
 import Logout from "./Common/LogoutComponent";
+import Checkout from "./Application/Checkout/CheckoutHookComponent";
+import RecentOrder from "./Application/Order/RecentOrderComponent";
+import Reorder from "./Application/Reorder/ReorderComponent";
 
 export default class ApplicationComponent extends Component {
     constructor(props){
@@ -64,6 +67,9 @@ export default class ApplicationComponent extends Component {
                     <Route path="about" element={<About />}/>
                     <Route path="about/:id" element={<About />} />
                     <Route path="*" element={<NotFound />}/>
+                    <Route path="checkout" element={<Checkout />}/>
+                    <Route path="recentOrders" element={<RecentOrder />}/>
+                    <Route path="reorderPage" element={<Reorder />}/>
                     <Route path= "/logout" element = {<Logout />}/>                    
                 </Routes>
                 <Footer/> 
